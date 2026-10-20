@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main() 
+{
+    float orderAmount, discount = 0.0, deliveryCharge = 0.0, finalAmount;
+    int membershipType;
+    printf("Enter the order amount (in ₹): ");
+    scanf("%f", &orderAmount);
+    printf("Enter membership type (1 for premium, 0 for regular): ");
+    scanf("%d", &membershipType);
+    if (orderAmount >= 500) 
+    {
+        deliveryCharge = 0.0;
+        if (membershipType == 1) {
+            discount = 0.10 * orderAmount;
+        } else {
+            discount = 0.0;
+        }
+    } else {
+        deliveryCharge = 50.0;
+        discount = 0.0;       
+    }
+    finalAmount = (orderAmount - discount) + deliveryCharge;
+    printf("\n--- Bill Summary ---\n");
+    printf("Order Amount    : ₹%.2f\n", orderAmount);
+    printf("Discount Applied: ₹%.2f\n", discount);
+    printf("Delivery Charge : ₹%.2f\n", deliveryCharge);
+    printf("--------------------\n");
+    printf("Final Amount    : ₹%.2f\n", finalAmount);
+    return 0;
+}
